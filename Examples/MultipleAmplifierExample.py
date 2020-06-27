@@ -1,9 +1,9 @@
 # Author: Colin Pollard
 # Date: 6/24/2020
-from Magnet import Magnet
-from HallSensor import HallSensor
-from Amplifier import Amplifier
-from FieldCalculations import calculate1DField, calculateVoltage1D
+from Core.Magnet import Magnet
+from Core.HallSensor import HallSensor
+from Core.Amplifier import Amplifier
+from Core.FieldCalculations import calculate1DField, calculateVoltage1D
 import matplotlib.pyplot as plt  # you do not need this import if you comment out the plotting code below and want a pure python example.
 
 # Create an example cylinder, 6mm diameter, 1mm thick, N52 grade

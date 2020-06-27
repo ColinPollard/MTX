@@ -1,8 +1,8 @@
 # Author: Colin Pollard
 # Date: 6/24/2020
-from Magnet import Magnet
-from HallSensor import HallSensor
-from Amplifier import Amplifier
+from Core.Magnet import Magnet
+from Core.HallSensor import HallSensor
+from Core.Amplifier import Amplifier
 import math
 
 

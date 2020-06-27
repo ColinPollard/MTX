@@ -1,6 +1,6 @@
 # Author: Colin Pollard
 # Date: 6/24/2020
-from FieldCalculations import *
+from Core.FieldCalculations import *
 import matplotlib.pyplot as plt  # you do not need this import if you comment out the plotting code below and want a pure python example.
 
 # Create an example cylinder, 6mm diameter, 1mm thick, N52 grade
