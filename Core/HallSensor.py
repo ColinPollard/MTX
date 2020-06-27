@@ -128,9 +128,9 @@ class HallSensor:
             vOut = vQ + field * self.__sensitivity
 
             # Check for clipping (0.2 volts are limits to linear range for this sensor)
-            if vOut > 3.3 - 0.2:
+            if vOut > 3.3 - 0.2 or field > self.__maxRange:
                 vOut = 3.3 - 0.2
-            elif vOut < 0.2:
+            elif vOut < 0.2 or field < self.__minRange:
                 vOut = 0.2
 
         elif self.__type == "bipolar5":
@@ -139,9 +139,9 @@ class HallSensor:
             vOut = vQ + field * self.__sensitivity
 
             # Check for clipping
-            if vOut > 4.8:
+            if vOut > 4.8 or field > self.__maxRange:
                 vOut = 4.8
-            elif vOut < 0.2:
+            elif vOut < 0.2 or field < self.__minRange:
                 vOut = 0.2
 
         elif self.__type == "unipolar3.3":
@@ -149,18 +149,18 @@ class HallSensor:
 
             # Check for clipping based on field range, may create strange behavior at limits.
             # Checking by voltage range may work better, but YMMV
-            if field > self.__maxRange:
-                vOut = 3.3
-            elif field < self.__minRange:
-                vOut = 0
+            if vOut > 3.1 or field > self.__maxRange:
+                vOut = 3.1
+            elif vOut < 0.2 or field < self.__minRange:
+                vOut = 0.2
 
         elif self.__type == "unipolar5":
             vOut = field * self.__sensitivity
 
             # Check for clipping - same note as above
-            if field > self.__maxRange:
-                vOut = 5
-            elif field < self.__minRange:
-                vOut = 0
+            if vOut > 4.8 or field > self.__maxRange:
+                vOut = 4.8
+            elif vOut < 0.2 or field < self.__minRange:
+                vOut = 0.2
 
         return vOut
